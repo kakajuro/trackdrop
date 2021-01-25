@@ -13,6 +13,7 @@ export default function Register({ setAuth }) {
   const onChange = (e) => {
     setInputs({ ...inputs, [e.target.name]: e.target.value });
   };
+
   const onSubmitForm = async (e) => {
     e.preventDefault();
     try {
@@ -36,6 +37,7 @@ export default function Register({ setAuth }) {
       console.log(err.message);
     }
   };
+
   return (
     <div>
       <h1>Register</h1>
@@ -64,7 +66,7 @@ export default function Register({ setAuth }) {
           placeholder="name"
           onChange={(e) => onChange(e)}
         />
-        <button className="btn btn-success btn-block">Submit</button>
+        <button className="btn btn-success btn-block">Join</button>
       </form>
       <Link to="/login">Login</Link>
     </div>

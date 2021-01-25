@@ -16,6 +16,7 @@ export default function Feed({ setAuth }) {
       console.log(err.message);
     }
   }
+
   useEffect(() => {
     getName();
   }, []);
@@ -26,6 +27,7 @@ export default function Feed({ setAuth }) {
     setAuth(false);
     //toast.success("Successfully logged out");
   };
+  
   return (
     <div>
       <h1>Feed {name}</h1>

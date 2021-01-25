@@ -35,6 +35,7 @@ export default function Login({ setAuth }) {
       console.log(err.message);
     }
   };
+
   return (
     <div>
       <h1>Login</h1>
