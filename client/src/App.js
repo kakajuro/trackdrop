@@ -7,9 +7,10 @@ import {
   Redirect,
 } from "react-router-dom";
 
-import Feed from "./components/Feed";
-import Login from "./components/Login";
-import Register from "./components/Register";
+import Feed from "./pages/Feed";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+
 import "./App.scss";
 
 export default function App() {
@@ -37,9 +38,12 @@ export default function App() {
   };
 
   return (
-    <div>
+    <div className="App">
       <Router>
         <div className="container">
+          <Switch>
+            <Redirect from="/" to="/feed"/>
+          </Switch>
           <Switch>
             <Route
               exact

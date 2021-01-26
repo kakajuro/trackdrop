@@ -60,7 +60,7 @@ router.post("/login", validInfo, async (req, res) => {
     );
 
     if (!validPassword) {
-      return res.status(401).json("Password or Email is incorrect");
+      return res.status(401).json("Invalid Credentials");
     }
 
     // 4. GIVE THEM THE JWT TOKEN
