@@ -22,7 +22,7 @@
   align-items: center;
 }
 
-.login-button {
+.register-button {
   @extend .hoverable;
   .add-button:focus {
     outline: none;
@@ -44,8 +44,4 @@
   transition: 0.2s ease-in-out;
 
   font-size: 12.5pt;
-}
-
-.register-text {
-  font-size: 16px;
 }

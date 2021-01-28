@@ -32,11 +32,7 @@
   width: 200%;
 }
 
-.submit-button {
-  @extend .button;
-}
-
-.link {
+.link-text {
   :link {
     color: $col;
   }

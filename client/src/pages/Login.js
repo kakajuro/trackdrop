@@ -54,7 +54,8 @@ export default function Login({ setAuth }) {
   };
 
   return (
-    <div className="container">
+    <div className="container" autoComplete="off">
+      <Spacer height="200px" />
       <h1>Login</h1>
       <form className="form" onSubmit={onSubmitForm}>
         <input
@@ -81,10 +82,10 @@ export default function Login({ setAuth }) {
           : ""
         }
         <Spacer height="15px" />
-        <button className="submit-button">Login</button>
+        <button className="register-button">Login</button>
       </form>
       <Spacer height="10px" />
-      <p className="register-text">Don't have an account? <Link className="register-link"to="/register">Create one</Link></p>
+      <p className="outside-text">Don't have an account? <Link className="link"to="/register">Create one</Link></p>
     </div>
   );
 };

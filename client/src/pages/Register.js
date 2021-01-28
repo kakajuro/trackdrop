@@ -1,7 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
+import Spacer from "react-spacer";
+
+import Validation from "../components/validation";
+
+import "../styles/Register.scss";
+
 export default function Register({ setAuth }) {
+
+  document.addEventListener('invalid', () => {
+    return (e) => {
+      e.preventDefault();
+      setInvalidForm(true);
+      setFormRes("Invalid entries");
+    }
+  });
+
+  const [invalidForm, setInvalidForm] = useState(false);
+  const [formRes, setFormRes] = useState("");
   const [inputs, setInputs] = React.useState({
     email: "",
     password: "",
@@ -28,10 +45,10 @@ export default function Register({ setAuth }) {
       if (parseRes.token) {
         localStorage.setItem("token", parseRes.token);
         setAuth(true);
-        //toast.success("Registration Successful");
       } else {
         setAuth(false);
-        //toast.error(parseRes);
+        setInvalidForm(true);
+        setFormRes(parseRes); 
       }
     } catch (err) {
       console.log(err.message);
@@ -39,36 +56,46 @@ export default function Register({ setAuth }) {
   };
 
   return (
-    <div>
+    <div className="container" autoComplete="off">
+      <Spacer height="200px" />
       <h1>Register</h1>
-      <form onSubmit={onSubmitForm}>
+      <form className="form" onSubmit={onSubmitForm}>
         <input
-          className="form-control my-3"
+          className="input"
+          autoComplete="off"
           type="email"
           name="email"
           value={email}
-          placeholder="email"
+          placeholder="Email"
           onChange={(e) => onChange(e)}
         />
+        <Spacer height="5px" />
         <input
-          className="form-control my-3"
+          className="input"
           type="password"
           name="password"
           value={password}
-          placeholder="password"
+          placeholder="Password"
           onChange={(e) => onChange(e)}
         />
+        <Spacer height="5px" />
         <input
-          className="form-control my-3"
+          className="input"
           type="text"
           name="name"
           value={name}
-          placeholder="name"
+          placeholder="Username"
           onChange={(e) => onChange(e)}
         />
-        <button className="btn btn-success btn-block">Join</button>
+        <Spacer height="12.5px" />
+        { invalidForm
+          ? <Validation text={formRes} />
+          : ""
+        }
+        <Spacer height="12.5px" />
+        <button className="register-button">Join</button>
       </form>
-      <Link to="/login">Login</Link>
+      <p className="outside-text">Already have an account? <Link className="link"to="/login">Login</Link></p>
     </div>
   );
 };

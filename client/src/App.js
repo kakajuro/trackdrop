@@ -40,7 +40,7 @@ export default function App() {
   return (
     <div className="App">
       <Router>
-        <div className="container">
+        <div>
           <Switch>
             <Redirect from="/" to="/feed"/>
           </Switch>
