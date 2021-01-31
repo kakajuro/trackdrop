@@ -40,49 +40,45 @@ export default function App() {
   return (
     <div className="App">
       <Router>
-        <div>
-          <Switch>
-            <Redirect from="/" to="/feed"/>
-          </Switch>
-          <Switch>
-            <Route
-              exact
-              path="/login"
-              render={(props) =>
-                !isAuthenticated ? (
-                  <Login {...props} setAuth={setAuth} />
-                ) : (
-                  <Redirect to="/feed" />
-                )
-              }
-            />
-            <Route
-              exact
-              path="/register"
-              render={(props) =>
-                !isAuthenticated ? (
-                  <Register {...props} setAuth={setAuth} />
-                ) : (
-                  <Redirect to="/login" />
-                )
-              }
-            />
-            <Route
-              exact
-              path="/feed"
-              render={(props) =>
-                isAuthenticated ? (
-                  <Feed {...props} setAuth={setAuth} />
-                ) : (
-                  <Redirect to="/login" />
-                )
-              }
-            />
-          </Switch>
-        </div>
+        <Switch>
+          <Redirect from="/" to="/feed"/>
+        </Switch>
+        <Switch>
+          <Route
+            exact
+            path="/login"
+            render={(props) =>
+              !isAuthenticated ? (
+                <Login {...props} setAuth={setAuth} />
+              ) : (
+                <Redirect to="/feed" />
+              )
+            }
+          />
+          <Route
+            exact
+            path="/register"
+            render={(props) =>
+              !isAuthenticated ? (
+                <Register {...props} setAuth={setAuth} />
+              ) : (
+                <Redirect to="/login" />
+              )
+            }
+          />
+          <Route
+            exact
+            path="/feed"
+            render={(props) =>
+              isAuthenticated ? (
+                <Feed {...props} setAuth={setAuth} />
+              ) : (
+                <Redirect to="/login" />
+              )
+            }
+          />
+        </Switch>
       </Router>
     </div>
   );
 }
-
-

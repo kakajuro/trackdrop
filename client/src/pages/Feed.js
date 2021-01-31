@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 
 export default function Feed({ setAuth }) {
   const [name, setName] = useState("");
+
   async function getName() {
     try {
       const response = await fetch("http://localhost:5000/dashboard/", {
@@ -25,16 +26,17 @@ export default function Feed({ setAuth }) {
     e.preventDefault();
     localStorage.removeItem("token");
     setAuth(false);
-    //toast.success("Successfully logged out");
   };
   
   return (
-    <div>
-      <h1>Feed {name}</h1>
-      <button className="btn btn-primary" onClick={(e) => logout(e)}>
-        Logout
-      </button>
-    </div>
+    <>
+      <div>
+        <h1>Feed {name}</h1>
+        <button onClick={(e) => logout(e)}>
+          Logout
+        </button>
+      </div>
+    </>
   );
 };
 
