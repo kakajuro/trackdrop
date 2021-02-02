@@ -7,12 +7,10 @@ app.use(express.json()); // REQ BODY
 app.use(cors());
 
 // ROUTES //
-
-// REGISTER AND LOGIN ROUTES
 app.use("/auth", require("./routes/jwtAuth"));
-
-//  DASHBOARD ROUTER
 app.use("/dashboard", require("./routes/dashboard"));
+app.use("/post", require("./routes/post"));
+
 
 app.listen(5000, () => {
   console.log("Server running on port 5000");
