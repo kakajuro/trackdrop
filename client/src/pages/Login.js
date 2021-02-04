@@ -67,7 +67,7 @@ export default function Login({ setAuth }) {
           placeholder="Email..."
           onChange={(e) => onChange(e)}
         />
-        <Spacer height="5px" />
+        <Spacer height="15px" />
         <input
           className="input password"
           type="password"
@@ -82,7 +82,7 @@ export default function Login({ setAuth }) {
           : ""
         }
         <Spacer height="15px" />
-        <button className="register-button">Login</button>
+        <button className="register-button">Go</button>
       </form>
       <Spacer height="10px" />
       <p className="outside-text">Don't have an account? <Link className="link"to="/register">Create one</Link></p>

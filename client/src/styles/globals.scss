@@ -1,7 +1,7 @@
 @import "../index.scss";
 
 .landingContainer {
-  height: 90%;
+  height: 70%;
   display: flex;
   flex-direction: column;
   
@@ -13,12 +13,12 @@
 
 .input-box {
   outline: none;
-  border: none;
-  border-bottom: 5px solid $col;
+  border: 3px solid $col;
 
   display: flex;
-  padding-top: 1rem;
-  justify-items: flex-end;
+  justify-content: center;
+  
+  height: 32px;
 
   font-size: 14px;
 
@@ -27,7 +27,7 @@
 }
 
 .input-box:focus {
-  border-bottom: 5px solid $activeCol;
+  border: 3px solid $activeCol;
   transition: 0.2s ease-in-out;
   width: 200%;
 }

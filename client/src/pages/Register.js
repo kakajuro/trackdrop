@@ -69,7 +69,7 @@ export default function Register({ setAuth }) {
           placeholder="Email"
           onChange={(e) => onChange(e)}
         />
-        <Spacer height="5px" />
+        <Spacer height="15px" />
         <input
           className="input"
           type="password"
@@ -78,7 +78,7 @@ export default function Register({ setAuth }) {
           placeholder="Password"
           onChange={(e) => onChange(e)}
         />
-        <Spacer height="5px" />
+        <Spacer height="15px" />
         <input
           className="input"
           type="text"
