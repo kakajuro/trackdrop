@@ -44,4 +44,20 @@ router.get("/:user", async (req, res) => {
   }
 });
 
+// DELETE POST 
+router.delete("/delete", async (req, res) => {
+  try {
+    const body = req.body;
+    const id = body.postid;
+
+    await pool.query("DELETE FROM posts WHERE postId = $1", [id]);
+
+    res.json("Post deleted sucessfully");
+
+  } catch (err) {
+    res.status(500).json("Server Error");
+    console.error(err.message);
+  }
+});
+
 module.exports = router;
