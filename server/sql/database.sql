@@ -17,6 +17,3 @@ CREATE TABLE posts (
   tags JSON,
   likes INT DEFAULT 0
 );
-
-INSERT INTO posts (title, link, author, tags) 
-  VALUES ('Fortnite drip', 'youtube.com/watch?v=jHfio97', 'swishy', '["ayyy", "dubstep"]');
