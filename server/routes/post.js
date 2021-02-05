@@ -5,14 +5,14 @@ const authorization = require("../middleware/authorization");
 // CREATE POST
 router.post("/create", async (req, res) => {
   try {
-    const { title, link, author, tags } = req.body;
+    const { title, artist, link, author, tags } = req.body;
 
     let tagsObject = {
       tags : [...tags]
     }
 
-    await pool.query("INSERT INTO posts (title, link, author, tags) VALUES ($1, $2, $3, $4) RETURNING *", 
-      [title, link, author, tagsObject]);
+    await pool.query("INSERT INTO posts (title, artist, link,  author, tags) VALUES ($1, $2, $3, $4, $5) RETURNING *", 
+      [title, artist, link, author, tagsObject]);
 
     res.json("Posted Sucessfully");
   } catch (err) {

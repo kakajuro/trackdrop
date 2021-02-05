@@ -18,6 +18,3 @@ CREATE TABLE posts (
   tags JSON,
   likes INT DEFAULT 0
 );
-
-INSERT INTO posts (title, artist, link, author, tags) 
-  VALUES ('track', 'dj', 'youtube.com/watch?v=jwegfo2', '1', '["house"]');
