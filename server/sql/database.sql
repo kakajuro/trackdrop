@@ -12,8 +12,12 @@ CREATE TABLE users (
 CREATE TABLE posts (
   postId SERIAL PRIMARY KEY,
   title VARCHAR(255) NOT NULL,
+  artist VARCHAR(255) NOT NULL,
   link VARCHAR(255) NOT NULL,
   author VARCHAR(255) NOT NULL,
   tags JSON,
   likes INT DEFAULT 0
 );
+
+INSERT INTO posts (title, artist, link, author, tags) 
+  VALUES ('track', 'dj', 'youtube.com/watch?v=jwegfo2', '1', '["house"]');
