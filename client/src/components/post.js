@@ -8,5 +8,5 @@ export default function Post(props) {
       <p>{props.link}</p>
       <p>{props.author}</p>
     </div>
-  );
+  )
 }

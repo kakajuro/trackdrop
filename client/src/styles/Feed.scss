@@ -1,0 +1,21 @@
+@import "../index.scss";
+@import "./globals.scss";
+
+.navbar {
+  display: flex;
+  flex-direction: row;
+
+  height: 70px;
+  background-color: #20232a;
+}
+
+.title-section {
+  display: flex;
+  align-items: center;
+}
+
+.site-title {
+  color: $col;
+  font-size: 25pt;
+  padding-bottom: 9.5px;
+}
