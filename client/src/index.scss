@@ -4,9 +4,7 @@ html, body {
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Poppins', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -14,7 +12,7 @@ body {
 $padding-distance: 20px;
 
 $col:  rgb(1, 255, 120);
-$activeCol: rgb(37, 218, 121);
+$activeCol: rgb(53, 218, 130);
 
 h1, h2, p {
   cursor: default;
@@ -22,6 +20,12 @@ h1, h2, p {
 
 .hoverable:hover {
   background-color: $activeCol;
+  transition: 0.25s ease-in-out;
+  cursor: pointer;
+}
+
+.hoverable-icon:hover {
+  color: $activeCol;
   transition: 0.25s ease-in-out;
   cursor: pointer;
 }
