@@ -6,7 +6,9 @@ CREATE TABLE users (
   userEmail VARCHAR(255) NOT NULL,
   userPassword VARCHAR(255) NOT NULL,
   saved JSON DEFAULT '[]',
-  liked JSON DEFAULT '[]'
+  liked JSON DEFAULT '[]',
+  followed JSON DEFAULT '[]',
+  followers JSON DEFAULT '[]'
 );
 
 CREATE TABLE posts (
