@@ -1,4 +1,5 @@
 const router = require("express").Router();
+const { json } = require("express");
 const pool = require("../db");
 const authorization = require("../middleware/authorization");
 
@@ -14,7 +15,7 @@ router.get("/all", async (req, res) => {
 });
 
 // GET POSTS FROM USER
-router.get("/users/:user", async (req, res) => {
+router.get("/users/:user", authorization, async (req, res) => {
   try {
     const searchID = req.params.user;
     
@@ -26,8 +27,13 @@ router.get("/users/:user", async (req, res) => {
   }
 });
 
+// GET SAVED POSTS FROM USERS
+
+// GET LIKED POSTS FROM USERS
+
+
 // GET POSTS FROM FOLLOWED USERS
-router.get("/following", async (req, res) => {
+router.get("/following", authorization, async (req, res) => {
   try {
     let following = []; // array of followed users that would be retrieved from the db
     var postsToRes = [];
@@ -50,12 +56,38 @@ router.get("/following", async (req, res) => {
     });
   } catch (err) {
     res.status(500).json("Server Error");
+  }
+});
+
+//LIKE POST
+router.post("/like", async (req, res) => {
+  try {
+    const { username, postid } = req.body;
+
+    const addLike = await pool.query("UPDATE posts SET likes = likes + 1 WHERE postid = $1", [postid]);
+
+    const getPost = await pool.query("SELECT * FROM posts WHERE postid = $1", [postid]); 
+    let toAddID = getPost.rows[0].postid;
+
+    const likedList = await pool.query("SELECT liked FROM users WHERE username = $1", [username]);
+    let likedArray = likedList.rows;
+
+    var newLikedarray = [...likedArray, toAddID];
+    var newLikedarrayJSON = JSON.stringify(newLikedarray).toString();
+
+    const addToLiked = await pool.query("UPDATE users SET liked = $1 WHERE username = $2", [newLikedarrayJSON, username]);
+
+    res.json("Post liked sucesfully");
+  } catch (err) {
+    res.status(500).json(err.message);
     console.error(err.message);
   }
 });
 
+//BOOKMARK POST
+
 // CREATE POST
-router.post("/create", async (req, res) => {
+router.post("/create", authorization, async (req, res) => {
   try {
     const { title, artist, link, author, tags } = req.body;
 
@@ -73,7 +105,7 @@ router.post("/create", async (req, res) => {
 });
 
 // DELETE POST 
-router.delete("/delete", async (req, res) => {
+router.delete("/delete", authorization, async (req, res) => {
   try {
     const body = req.body;
     const id = body.postid;
@@ -84,7 +116,6 @@ router.delete("/delete", async (req, res) => {
     
   } catch (err) {
     res.status(500).json("Server Error");
-    console.error(err.message);
   }
 });
 

@@ -5,8 +5,8 @@ CREATE TABLE users (
   username VARCHAR(255) NOT NULL,
   userEmail VARCHAR(255) NOT NULL,
   userPassword VARCHAR(255) NOT NULL,
-  saved JSON DEFAULT '[]',
   liked JSON DEFAULT '[]',
+  saved JSON DEFAULT '[]',
   followed JSON DEFAULT '[]',
   followers JSON DEFAULT '[]'
 );
@@ -17,6 +17,6 @@ CREATE TABLE posts (
   artist VARCHAR(255) NOT NULL,
   link VARCHAR(255) NOT NULL,
   author VARCHAR(255) NOT NULL,
-  tags JSON,
+  tags json,
   likes INT DEFAULT 0
 );
