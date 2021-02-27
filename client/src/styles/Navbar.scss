@@ -1,0 +1,77 @@
+@import "../index.scss";
+@import "./globals.scss";
+
+.navbar {
+  display: flex;
+  flex-direction: row;
+
+  height: 70px;
+  background-color: #20232a;
+  
+  
+  .title-section {
+    
+    .site-title {
+      color: $col;
+      font-size: 25pt;
+      padding-bottom: 3px;
+    }
+    
+    display: flex;
+    align-items: center;
+  }
+  
+  .end-section {
+
+    .logout-button {
+      @extend .hoverable;
+      .add-button:focus {
+        outline: none;
+      }
+    
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    
+      width: 100px;
+      height: 40px;
+      border-radius: 4px;
+      
+      border: none;
+      outline: none;
+      background-color: $col;
+    
+      color: black;
+      font-weight: bold;
+      transition: 0.2s ease-in-out;
+    
+      font-size: 12.5pt;
+    }
+
+    .icon {
+      @extend .hoverable-icon;
+      color: $col;
+    }
+    
+    .icon:hover {
+      transform: translateY(-1px);
+    }
+
+    .info {
+      display: flex;
+      align-items: center;
+      padding-bottom: 1px;
+    }
+
+    display: flex;
+    
+    align-items: center;
+    justify-content: flex-end;
+    
+    margin-left: auto;
+    margin-right: 0;
+    padding-right: 15px;
+
+    width: 200px;
+  }
+}
