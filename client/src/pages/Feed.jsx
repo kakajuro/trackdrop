@@ -105,7 +105,7 @@ export default function Feed({ setAuth }) {
             <div className="header-text-container">
               <h1 className="header-text">Latest Posts:</h1>
             </div>
-            <div>
+            <div className="posts-div">
               {Posts.map(post => (
                 <Post 
                   key={post.postid} 
@@ -113,6 +113,7 @@ export default function Feed({ setAuth }) {
                   artist={post.artist}
                   link={post.link}
                   author={post.author}
+                  likes={post.likes}
                   tags={post.tags} />
               ))}
             </div>
@@ -121,21 +122,6 @@ export default function Feed({ setAuth }) {
 
           </div>
         </div>
-        {/* <div>
-          <div className="user-section">
-            <div className="icon search">
-              <FaSearch size="29" onClick={(e) => search(e)}/>
-            </div>
-            <Spacer width="20px"/>
-            <div className="icon profile">
-              <FaRegUserCircle size="34" onClick={(e) => profile(e)}/>
-            </div>
-            <Spacer width="20px"/>
-            <div className="icon sign-out">
-              <FaSignOutAlt size="32" onClick={e => logout(e)}/>
-            </div>
-          </div>
-        </div> */}
       </div>
     </>
   );
