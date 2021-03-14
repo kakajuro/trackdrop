@@ -5,10 +5,12 @@ import { BiBookmark } from "react-icons/bi";
 import { BsHeartFill } from "react-icons/bs";
 import { AiOutlineUser } from "react-icons/ai";
 
+import CustomScroll from 'react-custom-scroll';
 import Spacer from "react-spacer";
 
 import Navbar from "../components/navbar";
 import Post from "../components/post";
+import PostButton from "../components/postButton";
 
 import "../styles/Feed.scss";
 
@@ -55,10 +57,6 @@ export default function Feed({ setAuth }) {
   useEffect(() => {
     setPosts(Posts);
   }, [Posts]);
-
-  const postModal = () => {
-    console.log("postModal");
-  }
   
   return (
     <>
@@ -97,7 +95,7 @@ export default function Feed({ setAuth }) {
               </div>
               <Spacer height="25px" />
               <div className="button-div">
-                <button className="logout-button" onClick={() => postModal()}>Post</button>
+                <PostButton />
               </div>
             </div> 
           </div>
@@ -105,18 +103,20 @@ export default function Feed({ setAuth }) {
             <div className="header-text-container">
               <h1 className="header-text">Latest Posts:</h1>
             </div>
-            <div className="posts-div">
-              {Posts.map(post => (
-                <Post 
-                  key={post.postid} 
-                  title={post.title} 
-                  artist={post.artist}
-                  link={post.link}
-                  author={post.author}
-                  likes={post.likes}
-                  tags={post.tags} />
-              ))}
-            </div>
+            <CustomScroll >
+              <div className="posts-div">
+                {Posts.map(post => (
+                  <Post 
+                    key={post.postid} 
+                    title={post.title} 
+                    artist={post.artist}
+                    link={post.link}
+                    author={post.author}
+                    likes={post.likes}
+                    tags={post.tags} />
+                ))}
+              </div>
+            </CustomScroll>
           </div>
           <div className="right">
 
