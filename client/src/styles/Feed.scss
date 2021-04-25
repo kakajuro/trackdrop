@@ -2,7 +2,6 @@
 @import "./globals.scss";
 
 .main {
-
   .page {
     display: flex;
     flex-direction: row;
@@ -13,11 +12,9 @@
   display: flex;
   flex-direction: column;
   color: black;
-
 }
 
 .left {
-
   .buttons {
     display: flex;
     flex-direction: column;
@@ -44,7 +41,6 @@
   flex-direction: column;
   width: calc(100% / 3.5);
 }
-
 
 .header-text-container {
   display: flex;
@@ -89,7 +85,7 @@
   flex-direction: row;
 
   justify-content: center;
-  align-items: center
+  align-items: center;
 }
 
 .logout-button {
@@ -105,7 +101,7 @@
   width: 120px;
   height: 40px;
   border-radius: 4px;
-  
+
   border: none;
   outline: none;
   background-color: $col;

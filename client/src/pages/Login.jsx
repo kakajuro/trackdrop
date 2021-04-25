@@ -3,18 +3,17 @@ import { Link } from "react-router-dom";
 
 import Spacer from "react-spacer";
 
-import Validation from '../components/validation';
+import Validation from "../components/validation";
 
 import "../styles/Login.scss";
 
 export default function Login({ setAuth }) {
-
-  document.addEventListener('invalid', () => {
+  document.addEventListener("invalid", () => {
     return (e) => {
       e.preventDefault();
       setInvalidForm(true);
       setFormRes("Invalid entries");
-    }
+    };
   });
 
   const [invalidForm, setInvalidForm] = useState(false);
@@ -46,7 +45,7 @@ export default function Login({ setAuth }) {
       } else {
         setAuth(false);
         setInvalidForm(true);
-        setFormRes(parseRes);          
+        setFormRes(parseRes);
       }
     } catch (err) {
       console.log(err.message);
@@ -54,38 +53,40 @@ export default function Login({ setAuth }) {
   };
 
   return (
-    <div className="container" autoComplete="off">
-      <Spacer height="200px" />
+    <div className='container' autoComplete='off'>
+      <Spacer height='200px' />
       <h1>Login</h1>
-      <form className="form" onSubmit={onSubmitForm}>
+      <form className='form' onSubmit={onSubmitForm}>
         <input
-          className="input email"
-          autoComplete="off"
-          type="email"
-          name="email"
+          className='input email'
+          autoComplete='off'
+          type='email'
+          name='email'
           value={email}
-          placeholder="Email..."
+          placeholder='Email...'
           onChange={(e) => onChange(e)}
         />
-        <Spacer height="15px" />
+        <Spacer height='15px' />
         <input
-          className="input password"
-          type="password"
-          name="password"
+          className='input password'
+          type='password'
+          name='password'
           value={password}
-          placeholder="Password..."
+          placeholder='Password...'
           onChange={(e) => onChange(e)}
         />
-        <Spacer height="10px" />
-        { invalidForm
-          ? <Validation text={formRes} />
-          : ""
-        }
-        <Spacer height="15px" />
-        <button className="register-button">Go</button>
+        <Spacer height='10px' />
+        {invalidForm ? <Validation text={formRes} /> : ""}
+        <Spacer height='15px' />
+        <button className='register-button'>Go</button>
       </form>
-      <Spacer height="10px" />
-      <p className="outside-text">Don't have an account? <Link className="link"to="/register">Create one</Link></p>
+      <Spacer height='10px' />
+      <p className='outside-text'>
+        Don't have an account?{" "}
+        <Link className='link' to='/register'>
+          Create one
+        </Link>
+      </p>
     </div>
   );
-};
+}

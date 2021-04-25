@@ -8,13 +8,12 @@ import Validation from "../components/validation";
 import "../styles/Register.scss";
 
 export default function Register({ setAuth }) {
-
-  document.addEventListener('invalid', () => {
+  document.addEventListener("invalid", () => {
     return (e) => {
       e.preventDefault();
       setInvalidForm(true);
       setFormRes("Invalid entries");
-    }
+    };
   });
 
   const [invalidForm, setInvalidForm] = useState(false);
@@ -48,7 +47,7 @@ export default function Register({ setAuth }) {
       } else {
         setAuth(false);
         setInvalidForm(true);
-        setFormRes(parseRes); 
+        setFormRes(parseRes);
       }
     } catch (err) {
       console.log(err.message);
@@ -56,46 +55,48 @@ export default function Register({ setAuth }) {
   };
 
   return (
-    <div className="container" autoComplete="off">
-      <Spacer height="200px" />
+    <div className='container' autoComplete='off'>
+      <Spacer height='200px' />
       <h1>Register</h1>
-      <form className="form" onSubmit={onSubmitForm}>
+      <form className='form' onSubmit={onSubmitForm}>
         <input
-          className="input"
-          autoComplete="off"
-          type="email"
-          name="email"
+          className='input'
+          autoComplete='off'
+          type='email'
+          name='email'
           value={email}
-          placeholder="Email"
+          placeholder='Email'
           onChange={(e) => onChange(e)}
         />
-        <Spacer height="15px" />
+        <Spacer height='15px' />
         <input
-          className="input"
-          type="password"
-          name="password"
+          className='input'
+          type='password'
+          name='password'
           value={password}
-          placeholder="Password"
+          placeholder='Password'
           onChange={(e) => onChange(e)}
         />
-        <Spacer height="15px" />
+        <Spacer height='15px' />
         <input
-          className="input"
-          type="text"
-          name="name"
+          className='input'
+          type='text'
+          name='name'
           value={name}
-          placeholder="Username"
+          placeholder='Username'
           onChange={(e) => onChange(e)}
         />
-        <Spacer height="12.5px" />
-        { invalidForm
-          ? <Validation text={formRes} />
-          : ""
-        }
-        <Spacer height="12.5px" />
-        <button className="register-button">Join</button>
+        <Spacer height='12.5px' />
+        {invalidForm ? <Validation text={formRes} /> : ""}
+        <Spacer height='12.5px' />
+        <button className='register-button'>Join</button>
       </form>
-      <p className="outside-text">Already have an account? <Link className="link"to="/login">Login</Link></p>
+      <p className='outside-text'>
+        Already have an account?{" "}
+        <Link className='link' to='/login'>
+          Login
+        </Link>
+      </p>
     </div>
   );
-};
+}
