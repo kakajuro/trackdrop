@@ -2,73 +2,153 @@
 @import "./globals.scss";
 
 .navbar {
-  display: flex;
-  flex-direction: row;
+  padding: 0 10px;
 
-  height: 70px;
-  background-color: #20232a;
+  display: grid;
+  grid-template-columns: 15% 30% 55%;
+  grid-template-rows: 100%;
+
+  font-family: "Poppins", sans-serif;
+
+  height: 8%;
+  background-color: #fdfdfd;
+  border-bottom: 3px solid rgba(214, 214, 214, 0.6);
+
+  .h3 {
+    padding: 0;
+    margin: 0;
+  }
 
   .title-section {
+    .logo {
+      padding-top: 0.25rem;
+    }
+
     .site-title {
       color: $col;
+      padding-top: 0.2rem;
       font-size: 25pt;
       padding-bottom: 3px;
     }
 
     display: flex;
     align-items: center;
+    
+    // Unselctable styles
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    
   }
+    
+  .main-section {
+    
+    .nav-link-section {
+      display: flex;
+      flex-direction: column;
+      cursor: default;
+      padding-left: 1rem;
 
-  .end-section {
+      .nav-link-txt {
+        color: black;
+      } &:hover {
+        cursor: pointer;
+        color: $activeCol;
+      }
+    }
+    
     .logout-button {
       @extend .hoverable;
       .add-button:focus {
         outline: none;
       }
-
+      
       display: flex;
       align-items: center;
       justify-content: center;
-
+      
       width: 100px;
       height: 40px;
       border-radius: 4px;
-
+      
       border: none;
       outline: none;
       background-color: $col;
-
+      
       color: black;
       font-weight: bold;
       transition: 0.2s ease-in-out;
 
       font-size: 12.5pt;
     }
-
+    
     .icon {
       @extend .hoverable-icon;
       color: $col;
     }
-
+    
     .icon:hover {
       transform: translateY(-1px);
     }
-
+    
     .info {
       display: flex;
       align-items: center;
       padding-bottom: 1px;
     }
-
+    
     display: flex;
-
+    
     align-items: center;
-    justify-content: flex-end;
-
-    margin-left: auto;
+    
+    margin-left: 0;
     margin-right: 0;
-    padding-right: 15px;
-
-    width: 200px;
+    
+    width: 100%;
   }
-}
+  
+  .end-section {
+    
+    .searchbar {
+      font-family: "Poppins", sans-serif;
+      outline: none !important;
+      border-radius: 8px;
+      border-width: 2px;
+      border-color: #5f5f5f;
+      background-color: #f6f6f6;
+
+      padding-left: 5px;
+
+      height: 1.5rem;
+      
+      transition: 0.1s ease-in-out;
+        
+      font-size: 15px;
+        
+      width: 120%;
+    
+      &:focus {
+        outline: none !important;
+        transition: 0.1s ease-in-out;
+        width: 130%;
+      }
+        
+      }
+      
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      
+      padding-right: 1rem;
+    }
+
+    .searcharea {
+      display: flex;
+      justify-content: flex-start;
+      padding: 0 2rem;
+    }
+  }
+  

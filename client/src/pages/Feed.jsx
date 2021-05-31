@@ -5,7 +5,6 @@ import { BiBookmark } from "react-icons/bi";
 import { BsHeartFill } from "react-icons/bs";
 import { AiOutlineUser } from "react-icons/ai";
 
-import CustomScroll from "react-custom-scroll";
 import Spacer from "react-spacer";
 
 import Navbar from "../components/navbar";
@@ -103,21 +102,19 @@ export default function Feed({ setAuth }) {
             <div className='header-text-container'>
               <h1 className='header-text'>Latest Posts:</h1>
             </div>
-            <CustomScroll>
-              <div className='posts-div'>
-                {Posts.map((post) => (
-                  <Post
-                    key={post.postid}
-                    title={post.title}
-                    artist={post.artist}
-                    link={post.link}
-                    author={post.author}
-                    likes={post.likes}
-                    tags={post.tags}
-                  />
-                ))}
-              </div>
-            </CustomScroll>
+            <div className='posts-div'>
+              {Posts.map((post) => (
+                <Post
+                  key={post.postid}
+                  title={post.title}
+                  artist={post.artist}
+                  link={post.link}
+                  author={post.author}
+                  likes={post.likes}
+                  tags={post.tags}
+                />
+              ))}
+            </div>
           </div>
           <div className='right'></div>
         </div>

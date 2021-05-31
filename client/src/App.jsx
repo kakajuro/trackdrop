@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
 
-import disableScroll from 'disable-scroll';
-
 import {
   BrowserRouter as Router,
   Switch,
@@ -21,10 +19,6 @@ export default function App() {
   const setAuth = (boolean) => {
     setIsAuthenticated(boolean);
   };
-
-  useEffect(() => {
-    disableScroll.on();
-  }, [])
   
   useEffect(() => {
     isAuth();

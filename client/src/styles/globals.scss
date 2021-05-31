@@ -1,5 +1,13 @@
 @import "../index.scss";
 
+input:focus,
+select:focus,
+textarea:focus,
+button:focus,
+input:hover {
+    outline: none !important;
+}
+
 .landingContainer {
   height: 70%;
   display: flex;
